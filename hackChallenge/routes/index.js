@@ -22,7 +22,7 @@ var userSchema = mongoose.Schema({
     three: String,
 });
 
-var User = mongoose.model('Review', userSchema);
+var User = mongoose.model('User', userSchema);
 
 var silence = new User({ email: 'Silence',one: 'no' });
 console.log(silence.one); // 'Silence'
@@ -35,7 +35,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/user/:email', function(req,res,nex) {
 		console.log(req.params.email);
-		res.sendStatus(200);
+		
+		User.find({ 'email': req.params.email }, function(err,userList) { //Calls the find() method on your database
+		  	if (err) return console.error(err); //If there's an error, print it out
+		  else {
+		    console.log(userList); //Otherwise console log the comments you found
+			res.json(userList); //Then send the comments
+    
+    
+			  }
+			})
+
 
 	});
 
