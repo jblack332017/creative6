@@ -100,7 +100,7 @@
           //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           document.getElementById('quickstart-sign-in').textContent = 'Sign in with GitHub';
           document.getElementById('quickstart-account-details').textContent = 'null';
-          
+
           //document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
         }
@@ -114,3 +114,34 @@
     window.onload = function() {
       initApp();
     };
+
+    function findUser(email) {
+      $.getJSON('../user/'+email, function(data) {
+        console.log(data);
+        everything = "";
+
+        if (data.length==0)
+        {
+          postUser(email);
+        }
+      })
+    }
+
+
+
+    function postUser(email) {
+      
+    var url = "../user/"+email;
+    $.ajax({
+    url:url,
+    type: "POST",
+    success: function(data,textStatus) {
+        console.log("User Added");
+    }
+    })
+    getChallenges(email);
+    }
+
+    function getChallenges(email){
+
+    }

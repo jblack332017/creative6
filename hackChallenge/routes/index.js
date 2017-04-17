@@ -33,4 +33,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.post('/user/:email', function(req,res,nex) {
+		console.log(req.params.email);
+		res.sendStatus(200);
+
+	}
+
 module.exports = router;
