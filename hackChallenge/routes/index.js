@@ -37,6 +37,6 @@ router.post('/user/:email', function(req,res,nex) {
 		console.log(req.params.email);
 		res.sendStatus(200);
 
-	}
+	});
 
 module.exports = router;
