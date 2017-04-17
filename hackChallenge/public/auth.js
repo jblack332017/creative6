@@ -1,5 +1,4 @@
-<script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
-<script>
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyALkeZp4ZtXwtfd3B_4NWmL3Wqi9pw7gfw",
@@ -10,9 +9,7 @@
     messagingSenderId: "478439874744"
   };
   firebase.initializeApp(config);
-</script>
 
-  <script type="text/javascript">
     /**
      * Function called when clicking the Login/Logout button.
      */
@@ -115,4 +112,3 @@
     window.onload = function() {
       initApp();
     };
-  </script>
