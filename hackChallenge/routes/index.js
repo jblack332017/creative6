@@ -49,6 +49,7 @@ router.get('/user/:email', function(req,res,nex) {
 					var userJSON = JSON.stringify(userString);
 					console.log(userJSON.body);
 					var user = new User(userJSON.body);
+					console.log(user.two)
 					user.save(function (err, fluffy) {
 					  if (err) return console.error(err);
 					  res.json(userJSON);
