@@ -47,7 +47,7 @@ router.get('/user/:email', function(req,res,nex) {
 				else{
 					var userString = {email: req.params.email,one: "yes",two:"no",three:"no"};
 					var userJSON = JSON.stringify(userString);
-					console.log(userJSON.body);
+					console.log({email: req.params.email,one: "yes",two:"no",three:"no"});
 					var user = new User(userJSON);
 					user.save(function (err, fluffy) {
 					  if (err) return console.error(err);
