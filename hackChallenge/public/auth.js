@@ -28,7 +28,7 @@
       } else {
         // [START signout]
         firebase.auth().signOut();
-
+        window.location = "http://ec2-35-164-188-83.us-west-2.compute.amazonaws.com:31337/";
         // [END signout]
       }
       // [START_EXCLUDE]
@@ -100,7 +100,7 @@
           //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           document.getElementById('quickstart-sign-in').textContent = 'Sign in with GitHub';
           document.getElementById('quickstart-account-details').textContent = 'null';
-          window.location = "http://ec2-35-164-188-83.us-west-2.compute.amazonaws.com:31337/";
+          
           //document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
         }
