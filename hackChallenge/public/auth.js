@@ -122,8 +122,9 @@
         everything ="";
         for (link in data)
         {
-          everything+="";
+          everything+=link;
         }
+        $("#challenges").html(everything);
 
               })
     }
