@@ -44,7 +44,7 @@ router.get('/user/:email', function(req,res,nex) {
 				if (userList.length>0){
 					console.log("returning user");
 					//res.json(userList); //Then send the users
-					userInfo = userList;
+					userInfo = userList[0];
 					console.log(userInfo.two);
 
 				}
