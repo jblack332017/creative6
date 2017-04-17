@@ -39,14 +39,21 @@ router.get('/user/:email', function(req,res,nex) {
 		User.find({ 'email': req.params.email }, function(err,userList) { //Calls the find() method on your database
 		  	if (err) return console.error(err); //If there's an error, print it out
 		  else {
-		    console.log(userList); //Otherwise console log the comments you found
-			res.json(userList); //Then send the comments
+			    console.log(userList); //Otherwise console log the comments you found
+				if (userList.length>0){
+					res.json(userList); //Then send the users
+				}
+				else{
+					var userString = {email: req.params.email,one: "yes",two:"no",three:"no"};
+					var userJSON = JSON.stringify(userString);
+					console.log(userJSON);
+					
+				}
     
-    
-			  }
-			})
+    		}
+			  
 
-
+	});
 	});
 
 module.exports = router;
