@@ -119,7 +119,11 @@
     function findUser(email) {
       $.getJSON('../user/'+email, function(data) {
         console.log(data);
-        everything = "";
+        everything ="";
+        for (link in data)
+        {
+          everything+="";
+        }
 
               })
     }

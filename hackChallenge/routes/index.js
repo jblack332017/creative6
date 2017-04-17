@@ -63,20 +63,18 @@ router.get('/user/:email', function(req,res,nex) {
 					
 				}
 				jsonObj = [];
-				item = {};
 				if (userInfo.one=="yes")
 				{
-					item["one"] = "<a href='challenge1.html' class='w3-btn'>One</a>"
+					jsonObj.push("<a href='challenge1.html' class='w3-btn'>One</a>");
 				}
 				if (userInfo.two=="yes")
 				{
-					item["two"] = "<a href='challenge2.html' class='w3-btn'>Two</a>"
+					jsonObj.push( "<a href='challenge2.html' class='w3-btn'>Two</a>");
 				}
 				if (userInfo.three=="yes")
 				{
-					item["three"] = "<a href='challenge3.html' class='w3-btn'>Three</a>"
+					jsonObj.push( "<a href='challenge3.html' class='w3-btn'>Three</a>");
 				}
-				jsonObj.push(item);
 				res.json(jsonObj);
     
     		}
