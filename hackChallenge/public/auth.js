@@ -121,28 +121,7 @@
         console.log(data);
         everything = "";
 
-        if (data.length==0)
-        {
-          postUser(email);
-        }
-      })
+              })
     }
 
-
-
-    function postUser(email) {
-      
-    var url = "../user/"+email;
-    $.ajax({
-    url:url,
-    type: "POST",
-    success: function(data,textStatus) {
-        console.log("User Added");
-    }
-    })
-    getChallenges(email);
-    }
-
-    function getChallenges(email){
-
-    }
+   
