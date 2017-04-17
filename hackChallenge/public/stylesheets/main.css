@@ -6,3 +6,108 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+body,h1 {
+	font-family: "Raleway", Arial, sans-serif;
+	height: 100%;
+	max-height: 100%;
+}
+h1 {
+	letter-spacing: 6px;
+}
+header, footer {
+	text-align: center;
+	padding: 0.01em 16px;
+    margin-top: 10%;
+    margin-bottom: 16px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    opacity: 0.60;
+}
+
+#animateButton{
+	float: right;
+	margin: 10px;
+	border: 1px solid black;
+	padding: 2px;
+}
+.bash{
+
+}
+#sizzleReelContainer{
+	display: inline-block;
+    position: inherit;
+    top: 2%;
+    bottom: 2%;
+    margin: auto;
+    overflow: scroll;
+    max-width: 100%;
+    width: 100%;
+    max-height: 300px;
+}
+.hide{
+	display: none;
+}
+#hidden{
+	padding: 2%;
+	display: none;
+	float: right;
+	max-width: 100%;
+	width: 100%;
+}
+.logo {
+	width: 75px;
+	height: 75px;
+}
+#sizzleReel{
+	margin: 30px;
+	font-family: courier new;
+}
+
+
+
+footer {
+	background-color: #f1f1f1;
+}
+
+.xlarge{
+	font-size: 24px;
+}
+
+.content{
+	margin: auto;
+	max-width: 1000px;
+}
+
+.main-info{
+	text-align: left;
+	padding-bottom: 50px;
+}
+
+textarea {
+    /*background-color: #000;*/
+    border: 1px solid #000;
+    /*color: #00ff00;*/
+    padding: 8px;
+    font-family: courier new;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+.magicWord{
+	width: 75px;
+	height: 75px;
+	visibility: hidden;
+	
+}
+
+.w3-half{
+	overflow:scroll!important;
+    -webkit-transition: all 0.5s ease!important;
+    -moz-transition: all 0.5s ease!important;
+    -o-transition: all 0.5s ease!important;
+    transition: all 0.5s ease!important;
+}
