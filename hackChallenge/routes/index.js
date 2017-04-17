@@ -37,14 +37,19 @@ router.get('/user/:email', function(req,res,nex) {
 		console.log(req.params.email);
 		
 		User.find({ 'email': req.params.email }, function(err,userList) { //Calls the find() method on your database
+		  	var userInfo;
 		  	if (err) return console.error(err); //If there's an error, print it out
 		  else {
 			    console.log(userList); //Otherwise console log the comments you found
 				if (userList.length>0){
 					console.log("returning user");
-					res.json(userList); //Then send the users
+					//res.json(userList); //Then send the users
+					userInfo = userList;
+					console.log(userInfo.two);
+
 				}
 				else{
+					console.log("new User");
 					var userString = {email: req.params.email,one: "yes",two:"no",three:"no"};
 					var userJSON = JSON.stringify(userString);
 					console.log(userJSON);
@@ -52,10 +57,13 @@ router.get('/user/:email', function(req,res,nex) {
 					console.log(user.two)
 					user.save(function (err, fluffy) {
 					  if (err) return console.error(err);
-					  res.json(userJSON);
+					  //res.json(userJSON);
+					  userInfo = user;
 					});
 					
 				}
+
+
     
     		}
 			  
