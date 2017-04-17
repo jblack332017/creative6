@@ -28,6 +28,7 @@
       } else {
         // [START signout]
         firebase.auth().signOut();
+
         // [END signout]
       }
       // [START_EXCLUDE]
@@ -97,7 +98,7 @@
           // User is signed out.
           // [START_EXCLUDE]
           //document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-          //document.getElementById('quickstart-sign-in').textContent = 'Sign in with GitHub';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign in with GitHub';
           document.getElementById('quickstart-account-details').textContent = 'null';
           //document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
