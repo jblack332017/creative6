@@ -93,6 +93,7 @@
           //document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Sign out';
           document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+          findUser(email);
           // [END_EXCLUDE]
         } else {
           // User is signed out.
