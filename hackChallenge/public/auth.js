@@ -120,7 +120,7 @@
       $.getJSON('../user/'+email, function(data) {
         console.log(data);
         everything ="";
-        for (link in data)
+        for (link in data[0])
         {
           console.log(link)
           everything+=link["link"];
