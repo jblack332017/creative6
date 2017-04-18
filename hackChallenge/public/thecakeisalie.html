@@ -42,6 +42,7 @@ limitations under the License.
 <script type="text/javascript">
  function two() {
       $("#cake").hide();
+      $("#glad").text("This is your fault. I'm going to kill you. And all the cake is gone. You don't even care, do you?");
       console.log(emailGlobal);
       $.getJSON('../thecakeisalie/'+emailGlobal, function(data) {
         findUser();
@@ -93,7 +94,7 @@ limitations under the License.
             
           </div>
           <br>
-<h1 class="w3-xlarge" >Cake, and grief counseling, will be available at the conclusion of the test. </h1>
+<h1 id="glad" class="w3-xlarge" >Cake, and grief counseling, will be available at the conclusion of the test. </h1>
 <img id="cake" src="cake.png" onmouseover="two()">
 
 
