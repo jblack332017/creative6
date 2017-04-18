@@ -37,6 +37,7 @@ header, footer {
 }
 #loggin{
 	float: right;
+	margin-bottom: 40px;
 }
 #sizzleReelContainer{
 	display: inline-block;
