@@ -40,11 +40,28 @@ limitations under the License.
   
   function myWayOut(){
     $.getJSON('../mywayout/'+emailGlobal, function(data) {
-        findUser();
-        location.reload();
+        findUser(emailGlobal);
+        window.location = "http://www.yoururl.com";
 
               })
   }
+
+  function findUser(email) {
+      $.getJSON('../user/'+email, function(data) {
+        console.log(data);
+        everything ="";
+        for (number in data)
+        {
+          for (link in data[number])
+          {
+          console.log(data[number][link])
+          everything+=data[number][link];
+        }
+        }
+        $("#challenges").html(everything);
+
+              })
+    }
 </script>
 </head>
 <body>

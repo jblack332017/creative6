@@ -45,7 +45,7 @@ limitations under the License.
       $("#glad").text("This is your fault. I'm going to kill you. And all the cake is gone. You don't even care, do you?");
       console.log(emailGlobal);
       $.getJSON('../thecakeisalie/'+emailGlobal, function(data) {
-        findUser();
+        findUser(emailGlobal);
         location.reload();
 
               })
@@ -53,6 +53,23 @@ limitations under the License.
 
 
     };
+
+    function findUser(email) {
+      $.getJSON('../user/'+email, function(data) {
+        console.log(data);
+        everything ="";
+        for (number in data)
+        {
+          for (link in data[number])
+          {
+          console.log(data[number][link])
+          everything+=data[number][link];
+        }
+        }
+        $("#challenges").html(everything);
+
+              })
+    }
   </script>
   <style type="text/css">
     #cake{
