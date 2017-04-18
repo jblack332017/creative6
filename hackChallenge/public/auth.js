@@ -123,7 +123,7 @@
         for (link in data[0])
         {
           console.log(data[0][link])
-          everything+=link["link"];
+          everything+=data[0][link];
         }
         $("#challenges").html(everything);
 
