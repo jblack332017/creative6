@@ -125,10 +125,13 @@ var emailGlobal ="";
       $.getJSON('../user/'+email, function(data) {
         console.log(data);
         everything ="";
-        for (link in data[0])
+        for (number in data)
         {
-          console.log(data[0][link])
-          everything+=data[0][link];
+          for (link in data[number])
+          {
+          console.log(data[number][link])
+          everything+=data[number][link];
+        }
         }
         $("#challenges").html(everything);
 
