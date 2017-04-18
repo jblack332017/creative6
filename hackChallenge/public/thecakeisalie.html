@@ -43,6 +43,13 @@ limitations under the License.
  function two() {
       $("#cake").hide();
       console.log(emailGlobal);
+      $.getJSON('../thecakeisalie/'+emailGlobal, function(data) {
+        findUser();
+
+              })
+
+
+
     };
   </script>
   <style type="text/css">

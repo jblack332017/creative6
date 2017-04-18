@@ -33,6 +33,18 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/thecakeisalie/:email', function(req, res, next) {
+  	User.findOne({ email: req.params.email }, function (err, doc){
+  doc.two = 'yes';
+  doc.save();
+});
+
+
+  res.sendStatus(200);
+});
+
+
+
 router.get('/user/:email', function(req,res,nex) {
 		console.log(req.params.email);
 		
