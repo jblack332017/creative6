@@ -107,6 +107,7 @@ limitations under the License.
           <label>Key</label>
           <input type="text" id="key"/>
           <button onClick="tryKey()">Try Key</button>
+          <button id="continueButton" onClick="nextChallenge()" style="display: none">Continue</button>
       </div>
 
       <br>
@@ -134,12 +135,18 @@ limitations under the License.
             else {
                 document.getElementById("trueString").innerHTML = decrypted;
                 console.log(decrypted);
+                document.getElementById("continueButton").style.display = "inline-block";
                 foundMyKey();
+
             }
         }
         catch (err) {
             document.getElementById("trueString").innerHTML = "INVALID KEY!";
         }
+    }
+
+    var nextChallenge = function() {
+        window.location = "http://ec2-35-164-188-83.us-west-2.compute.amazonaws.com:31337/";
     }
 
     document.getElementById("cryptString").innerHTML = encrypted;
