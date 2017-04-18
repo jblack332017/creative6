@@ -1,4 +1,5 @@
 
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyALkeZp4ZtXwtfd3B_4NWmL3Wqi9pw7gfw",
@@ -14,6 +15,8 @@
      * Function called when clicking the Login/Logout button.
      */
     // [START buttoncallback]
+
+    var emailGlobal ="";
     function toggleSignIn() {
       if (!firebase.auth().currentUser) {
         // [START createprovider]
@@ -84,6 +87,7 @@
           // User is signed in.
           var displayName = user.displayName;
           var email = user.email;
+          emailGlobal = email;
           var emailVerified = user.emailVerified;
           var photoURL = user.photoURL;
           var isAnonymous = user.isAnonymous;
