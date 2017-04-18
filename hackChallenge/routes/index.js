@@ -39,7 +39,11 @@ router.get('/thecakeisalie/:email', function(req, res, next) {
   doc.save();
 });
 
-  	router.get('/mywayout/:email', function(req, res, next) {
+
+  res.sendStatus(200);
+});
+
+router.get('/mywayout/:email', function(req, res, next) {
   	User.findOne({ email: req.params.email }, function (err, doc){
   doc.three = 'yes';
   doc.save();
