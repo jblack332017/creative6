@@ -20,6 +20,7 @@ var userSchema = mongoose.Schema({
     one: String,
     two: String,
     three: String,
+    four: String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -68,7 +69,7 @@ User.findOne({ email: req.params.email }, function (err, userInfo){
 
 router.get('/mywayout/:email', function(req, res, next) {
   	 User.findOne({ email: req.params.email }, function (err, doc){
-        doc.two = 'yes';
+        doc.three = 'yes';
         doc.save();
     });
 
@@ -77,7 +78,7 @@ router.get('/mywayout/:email', function(req, res, next) {
 
 router.get('/foundMyKey/:email', function(req, res, next) {
   	 User.findOne({ email: req.params.email }, function (err, doc){
-        doc.three = 'yes';
+        doc.four = 'yes';
         doc.save();
     });
   res.sendStatus(200);
@@ -105,7 +106,7 @@ router.get('/user/:email', function(req,res,nex) {
 					var userString = {email: req.params.email,one: "yes",two:"no",three:"no"};
 					var userJSON = JSON.stringify(userString);
 					console.log(userJSON);
-					var user = new User({email: req.params.email,one: "yes",two:"no",three:"no"});
+					var user = new User({email: req.params.email,one: "yes",two:"no",three:"no",four:"no"});
 					console.log(user.two)
 					userInfo = user;
 					user.save(function (err, fluffy) {
@@ -133,6 +134,12 @@ router.get('/user/:email', function(req,res,nex) {
 				{
 					item = {};
 					item["link"] = "<a href='challenge3.html' class='w3-btn'>Three</a>"
+					jsonObj.push(item);
+				}
+                if (userInfo.four=="yes")
+				{
+					item = {};
+					item["link"] = "<a href='challenge4.html' class='w3-btn'>Four</a>"
 					jsonObj.push(item);
 				}
 				res.json(jsonObj);
