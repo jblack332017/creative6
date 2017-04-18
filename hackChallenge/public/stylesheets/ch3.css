@@ -1,0 +1,22 @@
+label {
+    font-weight: bold;
+    margin: 10px 4px;
+}
+
+.stringContainer {
+    word-wrap: break-word;
+    max-width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 20px;
+}
+
+#xkcd {
+    text-align: center;
+}
+
+#keyContainer {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}

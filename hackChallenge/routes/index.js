@@ -37,11 +37,11 @@ router.get('/thecakeisalie/:email', function(req, res, next) {
   	User.findOne({ email: req.params.email }, function (err, doc){
   doc.two = 'yes';
   doc.save();
-  
+
 });
 User.findOne({ email: req.params.email }, function (err, userInfo){
   jsonObj = [];
-				
+
 				if (userInfo.one=="yes")
 				{
 					item = {};
@@ -67,12 +67,19 @@ User.findOne({ email: req.params.email }, function (err, userInfo){
 });
 
 router.get('/mywayout/:email', function(req, res, next) {
-  	User.findOne({ email: req.params.email }, function (err, doc){
-  doc.three = 'yes';
-  doc.save();
+  	 User.findOne({ email: req.params.email }, function (err, doc){
+        doc.two = 'yes';
+        doc.save();
+    });
+
+    res.sendStatus(200);
 });
 
-
+router.get('/foundMyKey/:email', function(req, res, next) {
+  	 User.findOne({ email: req.params.email }, function (err, doc){
+        doc.three = 'yes';
+        doc.save();
+    });
   res.sendStatus(200);
 });
 
@@ -80,7 +87,7 @@ router.get('/mywayout/:email', function(req, res, next) {
 
 router.get('/user/:email', function(req,res,nex) {
 		console.log(req.params.email);
-		
+
 		User.find({ 'email': req.params.email }, function(err,userList) { //Calls the find() method on your database
 		  	var userInfo;
 		  	if (err) return console.error(err); //If there's an error, print it out
@@ -104,12 +111,12 @@ router.get('/user/:email', function(req,res,nex) {
 					user.save(function (err, fluffy) {
 					  if (err) return console.error(err);
 					  //res.json(userJSON);
-					  
+
 					});
-					
+
 				}
 				jsonObj = [];
-				
+
 				if (userInfo.one=="yes")
 				{
 					item = {};
@@ -129,11 +136,11 @@ router.get('/user/:email', function(req,res,nex) {
 					jsonObj.push(item);
 				}
 				res.json(jsonObj);
-    
+
     		}
-			  
+
 
 	});
-	});
+});
 
 module.exports = router;
