@@ -122,7 +122,7 @@
         everything ="";
         for (link in data)
         {
-          console.log(link["link"])
+          console.log(link)
           everything+=link["link"];
         }
         $("#challenges").html(everything);
