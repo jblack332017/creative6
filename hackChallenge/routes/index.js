@@ -85,13 +85,13 @@ router.get('/user/:email', function(req,res,nex) {
 				if (userInfo.two=="yes")
 				{
 					item = {};
-					item["link"] = "<a href='challenge1.html' class='w3-btn'>One</a>"
+					item["link"] = "<a href='challenge2.html' class='w3-btn'>Two</a>"
 					jsonObj.push(item);
 				}
 				if (userInfo.three=="yes")
 				{
 					item = {};
-					item["link"] = "<a href='challenge1.html' class='w3-btn'>One</a>"
+					item["link"] = "<a href='challenge3.html' class='w3-btn'>Three</a>"
 					jsonObj.push(item);
 				}
 				res.json(jsonObj);
