@@ -46,10 +46,23 @@ limitations under the License.
       console.log(emailGlobal);
       $.getJSON('../thecakeisalie/'+emailGlobal, function(data) {
         console.log(data);
-          
+          console.log(data);
+        everything ="";
+        for (number in data)
+        {
+          for (link in data[number])
+          {
+          console.log(data[number][link])
+          everything+=data[number][link];
+        }
+        }
+        $("#challenges").html(everything);
+
               })
 
-      findUser(emailGlobal);
+              })
+
+      
       
 
 

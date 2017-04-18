@@ -47,6 +47,7 @@ router.get('/mywayout/:email', function(req, res, next) {
   	User.findOne({ email: req.params.email }, function (err, doc){
   doc.three = 'yes';
   doc.save();
+  res.json(doc);
 });
 
 
