@@ -35,6 +35,9 @@ header, footer {
 .bash{
 
 }
+.loggin{
+	float: right;
+}
 #sizzleReelContainer{
 	display: inline-block;
     position: inherit;
