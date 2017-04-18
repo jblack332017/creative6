@@ -45,24 +45,14 @@ limitations under the License.
       $("#glad").text("This is your fault. I'm going to kill you. And all the cake is gone. You don't even care, do you?");
       console.log(emailGlobal);
       $.getJSON('../thecakeisalie/'+emailGlobal, function(data) {
-          console.log(data);
-        everything ="";
-        for (number in data)
-        {
-          for (link in data[number])
-          {
-          console.log(data[number][link])
-          everything+=data[number][link];
-        }
-        }
-        $("#challenges").html(everything);
+          
 
               
 
               })
 
       
-      
+      window.location = "http://ec2-35-164-188-83.us-west-2.compute.amazonaws.com:31337/";
 
 
     };
