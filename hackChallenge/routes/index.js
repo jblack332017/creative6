@@ -39,8 +39,28 @@ router.get('/thecakeisalie/:email', function(req, res, next) {
   doc.save();
   
 });
-User.findOne({ email: req.params.email }, function (err, doc){
-  res.json(doc);
+User.findOne({ email: req.params.email }, function (err, userInfo){
+  jsonObj = [];
+				
+				if (userInfo.one=="yes")
+				{
+					item = {};
+					item["link"] = "<a href='challenge1.html' class='w3-btn'>One</a>"
+					jsonObj.push(item);
+				}
+				if (userInfo.two=="yes")
+				{
+					item = {};
+					item["link"] = "<a href='challenge2.html' class='w3-btn'>Two</a>"
+					jsonObj.push(item);
+				}
+				if (userInfo.three=="yes")
+				{
+					item = {};
+					item["link"] = "<a href='challenge3.html' class='w3-btn'>Three</a>"
+					jsonObj.push(item);
+				}
+				res.json(jsonObj);
 });
 
 
