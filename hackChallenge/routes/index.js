@@ -37,6 +37,7 @@ router.get('/thecakeisalie/:email', function(req, res, next) {
   	User.findOne({ email: req.params.email }, function (err, doc){
   doc.two = 'yes';
   doc.save();
+  res.json(doc);
 });
 
 
