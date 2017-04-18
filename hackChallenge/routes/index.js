@@ -37,11 +37,13 @@ router.get('/thecakeisalie/:email', function(req, res, next) {
   	User.findOne({ email: req.params.email }, function (err, doc){
   doc.two = 'yes';
   doc.save();
+  
+});
+User.findOne({ email: req.params.email }, function (err, doc){
   res.json(doc);
 });
 
 
-  res.sendStatus(200);
 });
 
 router.get('/mywayout/:email', function(req, res, next) {
