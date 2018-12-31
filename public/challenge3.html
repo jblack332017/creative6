@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2016 Google Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Challenge One</title>
+
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!-- Material Design Theming -->
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/ch3.css">
+  <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+<script src="auth.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+<script type="text/javascript">
+
+  function foundMyKey(){
+    $.getJSON('../foundMyKey/'+emailGlobal, function(data) {
+
+              })
+  }
+
+</script>
+</head>
+<body>
+
+
+
+
+<div class="content" >
+
+<!-- Header -->
+<header>
+  <h1 class="w3-xlarge">Lost Keys</h1>
+  <img onclick="shoot(this)" class="logo" id="gun1" alt="ray" src="gun-blaster.png">
+
+  <div class="w3-padding-32">
+    <div class="w3-btn-bar w3-border w3-show-inline-block" id="challenges">
+      <!-- <a href="Joshua_M_Black.pdf" class="w3-btn">Resume</a>
+      <a onclick="$('#projects').goTo();" id="classified" target="_self"  href="#" class="w3-btn ">Projects</a>
+      <a onclick="$('#contact').goTo();" id="top_secret"  href="#" class="w3-btn">Contact</a> -->
+    </div>
+  </div>
+</header>
+
+<!-- Main INfo -->
+<div id="main" class="main-info">
+ <div id="loggin"><span id="email"></span> <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in">Sign in with GitHub</button></div>
+
+          <!-- Container where we'll display the user details -->
+          <div  class="quickstart-user-details-container hide">
+
+            <pre><code id="quickstart-account-details"></code></pre>
+
+          </div>
+          <h1 class="w3-xlarge">We've lost our encryption key. Can you find it?</h1>
+                <!--Hint: Whats the key number to this comic again? -->
+
+
+
+
+</div>
+
+  <!-- Button that handles sign-in/sign-out -->
+
+  <div id="challenge">
+      <div id="xkcd">
+          <a target="_blank" href="https://xkcd.com/538/"><img src="https://imgs.xkcd.com/comics/security.png"></a>
+      </div>
+      <br><br>
+      <div class="stringContainer">
+          <label>Encrypted String</label>
+          <div id="cryptString"></div>
+      </div>
+      <div class="stringContainer">
+          <label>Decrypted String</label>
+          <div id="trueString"></div>
+      </div>
+      <div id="keyContainer">
+          <label>Key</label>
+          <input type="text" id="key"/>
+          <button onClick="tryKey()">Try Key</button>
+          <button id="continueButton" onClick="nextChallenge()" style="display: none">Continue</button>
+      </div>
+
+      <br>
+</div>
+<!-- End Page Content -->
+</div>
+<script>
+    var encrypted = "U2FsdGVkX1+Z40A7rOWAG5gifMwmTISupo3k/SSEbgo+pt0Evcasf" +
+                    "qoIZwcOmaj4t4ZXsKiVFratI69LwWA6EHnlnDXDA0l4MilEgH5SwZ" +
+                    "ptjaObqvMfbZYVdegpTIFofVYYCd/Z7yZOqdohfjQLLxZdcodAM0tN" +
+                    "z9trHXutcR2lzsJJAUnOfbT+svdYRX7n7iADPluSK2UtWzsrkKIcZo" +
+                    "ba5LCXFbJmg3aaiARP+PF214mdsKTHiWJAdjWE7pE2sGcTVi2oXjUm" +
+                    "p2spFY6eJeHp2ogJvbI9AE1ZUbmmd8LRh/fjZaWrYabMXw/qA4Qap+U" +
+                    "HwrjN8zy8z6b/G+2ZVmshioeo1qLk3c7iXB5ZoMc=";
+
+    var tryKey = function() {
+        var key = document.getElementById("key").value;
+        var decrypted;
+        try {
+            var decrypted = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+            console.log(decrypted);
+            if (decrypted == "") {
+                document.getElementById("trueString").innerHTML = "INVALID KEY!";
+            }
+            else {
+                document.getElementById("trueString").innerHTML = decrypted;
+                console.log(decrypted);
+                document.getElementById("continueButton").style.display = "inline-block";
+                foundMyKey();
+
+            }
+        }
+        catch (err) {
+            document.getElementById("trueString").innerHTML = "INVALID KEY!";
+        }
+    }
+
+    var nextChallenge = function() {
+        window.location = "/";
+    }
+
+    document.getElementById("cryptString").innerHTML = encrypted;
+    //document.getElementById("demo2").innerHTML = decrypted;
+</script>
+</body>
+</html>
